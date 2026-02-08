@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For BANGARAM</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #6a0dad;
+  color: white;
+  text-align: center;
+}
+
+.box {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 20px;
+}
+
+img {
+  width: 100%;
+  border-radius: 15px;
+  margin-top: 15px;
+}
+
+button {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.hidden { display: none; }
+
+.heart {
+  font-size: 80px;
+  margin: 20px 0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box" id="lock">
+  <h2>🔒 Private</h2>
+  <input id="pass" placeholder="Password">
+  <button onclick="unlock()">Unlock</button>
+</div>
+
+<div class="box hidden" id="q1">
+  <h3>When was our first photo shot?</h3>
+  <img src="photo1.jpg">
+  <button onclick="right()">22nd March</button>
+  <button>23rd March</button>
+  <button>24th March</button>
+  <button>25th March</button>
+</div>
+
+<div class="box hidden" id="q2">
+  <h3>What happened that day?</h3>
+  <img src="photo2.jpg">
+  <button>Eating food</button>
+  <button>Went to temple</button>
+  <button onclick="right()">An accident</button>
+  <button>None</button>
+</div>
+
+<div class="box hidden" id="q3">
+  <h3>What happened this time?</h3>
+  <img src="photo3.jpg">
+  <button>Best date</button>
+  <button onclick="right()">Kallu kalipoyayii</button>
+  <button>Took photos</button>
+  <button>None</button>
+</div>
+
+<div class="box hidden" id="q4">
+  <h3>Is it our best date ever?</h3>
+  <button onclick="right()">Yes</button>
+  <button onclick="right()">No</button>
+  <button onclick="right()">Tell me on WhatsApp 😉</button>
+</div>
+
+<div class="box hidden" id="q5">
+  <h3>Will you be my Valentine 🤌🏻💝 ?</h3>
+  <button onclick="final()">Yes</button>
+  <button onclick="final()">No</button>
+</div>
+
+<div class="box hidden" id="end">
+  <div class="heart">💗</div>
+  <h2>I love you BANGARAM 💜</h2>
+  <p>Forever yours — Jaswanth</p>
+</div>
+
+<script>
+let step = 1;
+
+function unlock() {
+  if (document.getElementById("pass").value === "07-06-2025") {
+    document.getElementById("lock").classList.add("hidden");
+    document.getElementById("q1").classList.remove("hidden");
+  }
+}
+
+function right() {
+  document.getElementById("q" + step).classList.add("hidden");
+  step++;
+  document.getElementById("q" + step).classList.remove("hidden");
+}
+
+function final() {
+  document.getElementById("q5").classList.add("hidden");
+  document.getElementById("end").classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
